@@ -18,31 +18,21 @@
 
 #pragma once
 
-#include "quantum.h"
-#include "analog.h"
-#include "opt_encoder.h"
+#define VIAL_KEYBOARD_UID {0x78, 0x47, 0xA3, 0x05, 0x0B, 0x51, 0x4F, 0x07}
 
-// Sensor defs
-#define OPT_ENC1 F0
-#define OPT_ENC2 F4
-#define OPT_ENC1_MUX 0
-#define OPT_ENC2_MUX 4
 
-typedef union {
-    uint32_t raw;
-    struct {
-        uint8_t dpi_config;
-    };
-} keyboard_config_t;
+#define VIAL_UNLOCK_COMBO_ROWS { 0, 0 }
+#define VIAL_UNLOCK_COMBO_COLS { 0, 1 }
 
-extern keyboard_config_t keyboard_config;
-extern uint16_t          dpi_array[];
 
-enum ploopy_keycodes {
-    DPI_CONFIG = QK_KB_0,
-    DRAG_SCROLL,
-};
-
-bool encoder_update_user(uint8_t index, bool clockwise);
-bool encoder_update_kb(uint8_t index, bool clockwise);
-extern bool is_drag_scroll;
+#define PLOOPY_DPI_OPTIONS { 1000, 1200, 1600, 2000, 2400 }
+#define PLOOPY_DPI_DEFAULT 0
+#define PLOOPY_DRAGSCROLL_MOMENTARY 1
+#define PLOOPY_DRAGSCROLL_DPI 100
+//#define PLOOPY_DRAGSCROLL_INVERT 0
+//#define TAP_CODE_DELAY 50
+#define OPT_SCALE 1.5
+#define HOLD_ON_OTHER_KEY_PRESS
+#define PERMISSIVE_HOLD
+#define VIAL_TAP_DANCE_ENTRIES 3
+#define DYNAMIC_KEYMAP_LAYER_COUNT 3
