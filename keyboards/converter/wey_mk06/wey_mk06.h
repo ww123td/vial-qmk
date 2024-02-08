@@ -184,3 +184,63 @@
     { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
     { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO } \
 }
+
+/*
+ * Use atmega32u4/KCTS_ADD04_ADD09_v1.25.DL1 for WeyTec firmware version 1.25.
+ * ADD-04 Bloomberg keypad on the left, ADD-01 RD2000 Standard on the right.
+ *
+ * +---+---+---+---+     +---+---+---+---+---+---+---+---+---+---+---+---+     +---+---+---+---+
+ * |91     |92 |93 |     |80 |81 |82 |83 |84 |85 |86 |87 |88 |89 |8A |8B |     |A5     |A7     |
+ * +---------------+     +---+---+---+---+---+---+---+---+---+---+---+---+     |       |       |
+ * |94 |95 |96 |97 |                                                           |       |       |
+ * +---------------+                                                           +---------------+
+ * |98 |99 |9A |9B |                                                           |A8     |AA     |
+ * +---------------+                                                           +---------------+
+ * |9C |9D |9E |9F |                                                           |AD     |AF     |
+ * +---+---+---+---+                                                           +---+---+---+---+
+ *
+ * +---+---+---+---+     +---+---+---+---+---+---+---+---+---+---+---+---+     +---+---+---+---+
+ * |6E |   |   |   |     |70 |71 |72 |73 |74 |75 |76 |77 |78 |79 |7A |7B |     |   |   |   |   |
+ * +---+---+---+---+     +---+---+---+---+---+---+---+---+---+---+---+---+     +---+---+---+---+
+ *
+ * +---+---+---+---+---+---+---+---+---+---+---+---+---+-------+ +---+---+---+ +---+---+---+---+
+ * |01 |02 |03 |04 |05 |06 |07 |08 |09 |0A |0B |0C |0D |0F     | |7C |7D |7E | |5A |5F |64 |69 |
+ * +-----------------------------------------------------------+ +-----------+ +---------------+
+ * |10   |11 |12 |13 |14 |15 |16 |17 |18 |19 |1A |1B |1C |2B   | |4B |50 |55 | |5B |60 |65 |6A |
+ * +------------------------------------------------------|    | +-----------+ +-----------|   |
+ * |1E    |1F |20 |21 |22 |23 |24 |25 |26 |27 |28 |29 |2A |    | |4C |51 |56 | |5C |61 |66 |   |
+ * +-----------------------------------------------------------+ +-----------+ +---------------+
+ * |2C  |2D |2E |2F |30 |31 |32 |33 |34 |35 |36 |37 |39        | |4E |53 |58 | |5D |62 |67 |6C |
+ * +-----------------------------------------------------------+ +-----------+ +-----------|   |
+ * |3A  |3B  |3C  |3D                      |3E  |3F  |41  |40  | |4F |54 |59 | |63     |68 |   |
+ * +----+----+----+------------------------+----+----+----+----+ +---+---+---+ +-------+---+---+
+*/
+
+#define LAYOUT_add04_add09( \
+    K91, K92, K93, K80, K81, K82, K83, K84, K85, K86, K87, K88, K89, K8A, K8B, KA5, KA7, \
+    K94, K95, K96, K97, \
+    K98, K99, K9A, K9B, KA8, KAA, \
+    K9C, K9D, K9E, K9F, KAD, KAF, \
+    K6E, K70, K71, K72, K73, K74, K75, K76, K77, K78, K79, K7A, K7B, \
+    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, K0F, K7C, K7D, K7E, K5A, K5F, K64, K69, \
+    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, K2B, K4B, K50, K55, K5B, K60, K65, K6A, \
+    K1E, K1F, K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K4C, K51, K56, K5C, K61, K66, \
+    K2C, K2D, K2E, K2F, K30, K31, K32, K33, K34, K35, K36, K37, K39, K4E, K53, K58, K5D, K62, K67, K6C, \
+    K3A, K3B, K3C, K3D, K3E, K3F, K41, K40, K4F, K54, K59, K63, K68) { \
+    { KC_NO, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, KC_NO, K0F }, \
+    { K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, KC_NO, K1E, K1F }, \
+    { K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B, K2C, K2D, K2E, K2F }, \
+    { K30, K31, K32, K33, K34, K35, K36, K37, KC_NO, K39, K3A, K3B, K3C, K3D, K3E, K3F }, \
+    { K40, K41, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, K4B, K4C, KC_NO, K4E, K4F }, \
+    { K50, K51, KC_NO, K53, K54, K55, K56, KC_NO, K58, K59, K5A, K5B, K5C, K5D, KC_NO, K5F }, \
+    { K60, K61, K62, K63, K64, K65, K66, K67, K68, K69, K6A, KC_NO, K6C, KC_NO, K6E, KC_NO }, \
+    { K70, K71, K72, K73, K74, K75, K76, K77, K78, K79, K7A, K7B, K7C, K7D, K7E, KC_NO }, \
+    { K80, K81, K82, K83, K84, K85, K86, K87, K88, K89, K8A, K8B, KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, K91, K92, K93, K94, K95, K96, K97, K98, K99, K9A, K9B, K9C, K9D, K9E, K9F }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KA5, KC_NO, KA7, KA8, KC_NO, KAA, KC_NO, KC_NO, KAD, KC_NO, KAF }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO }, \
+    { KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO } \
+}
