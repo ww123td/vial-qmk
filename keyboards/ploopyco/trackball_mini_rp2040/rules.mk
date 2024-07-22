@@ -1,0 +1,1 @@
+DEFAULT_FOLDER = ploopyco/trackball_mini_rp2040/rev1_002_3360
